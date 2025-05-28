@@ -6,13 +6,13 @@ pkg.types.setTypeParser(1082, (str) => str);
 const { Pool } = pkg;
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // θα το ορίσεις στο Render
+  connectionString: process.env.DATABASE_URL, // θα το ορίσεις στο .env
   ssl: {
-    rejectUnauthorized: false, // σημαντικό για Render
+    rejectUnauthorized: false, // σημαντικό για Render για μη trusted πιστοποιητικά
   },
 });
 
-// Παράδειγμα ερώτησης
+// Παράδειγμα ερώτησης για τσεκ σωστής λειτουργίας
 const result = await pool.query(`SELECT * FROM "USER"`);
 
 const getAllGyms = async () => {

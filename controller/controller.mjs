@@ -257,6 +257,7 @@ export async function showProfileRender(req, res) {
 
   let user_subscriptions = (await model.getSubscriptionsByUserId(userId)) || [];
 
+  //Προσθήκη διάρκειας σε ημέρες για λήξη συνδρομών χρήστη
   const currentDate = dayjs().format("YYYY-MM-DD");
   user_subscriptions = user_subscriptions.filter(
     (sub) => sub.End_Date >= currentDate
@@ -449,7 +450,7 @@ export async function sessionManage(req, res) {
     );
   }
 }
-
+//Συνάρτηση για ανανέωση συνδρομής
 export async function renewSubscription(req, res) {
   const subscriptionId = req.params.id;
   const gymLocation = req.query.gym;
@@ -468,6 +469,9 @@ export async function renewSubscription(req, res) {
       "YYYY-MM-DD"
     );
   });
+  //ελέγχει αν η ημερομηνία λήξης της συνδρομής του χρήστη είναι μετά τη σημερινή,
+  //δηλαδή δεν έχει λήξει η συνδρομή. Αν έχει λήξη θα την εμφανίζει για αγορά όχι Ανανέωση
+  //και τις φιλτράρει έτσι
   userSubscriptions = userSubscriptions.filter(
     (sub) => sub.End_Date >= currentDate
   );
@@ -476,7 +480,7 @@ export async function renewSubscription(req, res) {
     subscriptionId,
     gymLocation
   );
-
+//βρίσκει τη συγκεκριμένη συνδρομή
   const userSubscription = userSubscriptions.find(
     (sub) =>
       String(sub["SUBSCRIPTION-ID"]) === String(subscriptionId) &&
@@ -487,7 +491,7 @@ export async function renewSubscription(req, res) {
     throw new Error("Η συνδρομή δεν βρέθηκε.");
   }
 
-  // Πάρε το End_Date από τη userSubscription
+  // Παίρνει το End_Date από τη userSubscription
   const currentEndDate = userSubscription.End_Date
     ? dayjs(userSubscription.End_Date)
     : dayjs();

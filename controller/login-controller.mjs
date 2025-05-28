@@ -102,7 +102,7 @@ export let doLogin = async function (req, res) {
 };
 
 export let doLogout = (req, res) => {
-  //Σημειώνουμε πως ο χρήστης δεν είναι πια συνδεδεμένος
+  //Για το logout
   req.session.destroy();
   res.redirect("/");
 };

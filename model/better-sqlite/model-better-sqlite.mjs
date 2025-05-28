@@ -166,7 +166,7 @@ const userSubscribes = (userId, subscriptionId, gym_Location) => {
   }
 };
 //Η συνάρτηση δημιουργεί έναν νέο χρήστη με password
-// ...existing code...
+
 
 const registerUser = async (name, password, email, phone, address, surname) => {
   // Έλεγχος αν υπάρχει χρήστης με αυτό το email
