@@ -1,0 +1,12 @@
+<main class="hero bg-error">
+  <h1>⚠️Σφάλμα</h1>
+  <p class="errorText">{{message}}</p>
+  {{#if status}}
+    <p class="errorText">Κωδικός σφάλματος: {{status}}</p>
+  {{/if}}
+  <a
+    href="/"
+    style="margin-top:30px; z-index: 2;"
+    class="btn btn-md btn-error-stroke"
+  >Επιστροφή στην αρχική</a>
+</main>

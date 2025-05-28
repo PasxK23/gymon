@@ -1,0 +1,358 @@
+/* profile-card */
+
+.bg-profile {
+  background: url("/images/profile.webp") no-repeat center center;
+
+  background-size: cover;
+}
+
+.bg-profile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#prof {
+  cursor: default;
+}
+
+.profile-all {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.profile-card {
+  position: relative;
+  background: rgba(121, 87, 87, 0.1);
+  border-radius: 12px;
+  justify-self: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  font-family: sans-serif;
+  box-shadow: none;
+}
+
+/* .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: none;
+    border-radius: 0px;
+}
+
+.card:hover {
+    box-shadow: none;
+} */
+
+.profile-card h2 {
+  margin-bottom: 1.5rem;
+  font-size: 24px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.profile-card p {
+  margin: 0.5rem 0;
+  font-size: 16px;
+}
+
+.profile-card strong {
+  color: #444;
+}
+
+.card span#select-category {
+  font-size: 24px;
+}
+
+/* my-syndromes */
+.card-container.grid {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: start;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card-container.flex-fit {
+  display: flex;
+  justify-content: start;
+  align-items: stretch;
+  gap: 10px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.card {
+  flex: 1 1 300px;
+  max-width: 350px;
+  width: fit-content;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.my-syndromes {
+  display: grid;
+  justify-self: center;
+}
+
+.my-syndromes h2 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  width: fit-content;
+  text-align: left;
+}
+
+/* plus-card */
+.plus-card {
+  flex: 1 1 300px;
+  max-width: 350px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: none;
+  background-color: white;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.plus-card:hover {
+  background-color: #f9f9f9;
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+/* Όταν γίνεται hover στη .plus-card, εφαρμόζεται και στο #plus */
+.plus-card:hover #plus {
+  color: #939191;
+  transform: scale(1.1);
+}
+
+#plus {
+  font-size: 200px;
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: #444;
+}
+
+.card,
+.plus-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* σπρώχνει το κουμπί στο κάτω μέρος */
+  height: 100%;
+}
+
+.a.not-subs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Ημιδιαφανές φόντο */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+  /* Κρύβει το modal */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.user-timetable-wrapper {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.user-timetable {
+  min-width: 700px;
+  /* Ελάχιστο πλάτος για να μην σπάει η διάταξη */
+  border-collapse: collapse;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.user-timetable th,
+.user-timetable td {
+  border: 1px solid #ccc;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.user-timetable th {
+  background: #f0bfbf;
+  font-weight: bold;
+}
+
+.user-timetable td {
+  background: #fefefe;
+}
+
+.session-link {
+  display: block;
+  border-radius: 12px;
+  margin: 4px 0;
+  padding: 10px 8px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.session-cell {
+  display: block;
+  text-align: center;
+  border-radius: 12px;
+  margin: 4px 0;
+  padding: 10px 8px;
+  font-size: 0.95em;
+  box-shadow: 0 2px 8px #1565c022;
+  width: 100%;
+  /* γέμισε όλο το td, για σωστό κλικ */
+  max-width: 120px;
+  /* περιορισμός */
+  height: 100%;
+  font-size: 1em;
+  font-weight: 500;
+  color: #155724;
+  background: #cef7ce;
+  /* ώστε να κεντραριστεί σωστά */
+}
+
+.session-cell:hover {
+  background: #a2fab7;
+  color: #155724;
+  box-shadow: 0 4px 16px #15572422;
+}
+
+.cell-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-width: 120px;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: 25vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .session-cell {
+    font-size: 0.9em;
+    padding: 7px 4px;
+  }
+
+  .session-cell b {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .session-cell {
+    font-size: 0.9em;
+    padding: 5px 2px;
+  }
+
+  .session-cell b {
+    font-size: 0.95em;
+  }
+
+  * {
+    font-size: inherit;
+  }
+
+  .profile-card h2 {
+    font-size: 0.9rem;
+  }
+
+  .profile-card p {
+    font-size: 0.8rem;
+  }
+
+  .profile-card strong {
+    font-size: 0.8rem;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .card-container.grid {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .card-container.flex-fit {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .card {
+    flex: 1 1 200px;
+    max-width: 250px;
+  }
+
+  .my-syndromes h2 {
+    font-size: 1.2rem;
+  }
+
+  .plus-card {
+    padding: 10px;
+  }
+
+  .plus-card #plus {
+    font-size: 150px;
+  }
+
+  .card span#select-category {
+    font-size: 1.2rem;
+  }
+}

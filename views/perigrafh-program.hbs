@@ -1,0 +1,25 @@
+<div class="hero bg-program"
+    style="background-image: url('/images/{{program.Name}}.webp'); background-size: cover; background-position: center;">
+    <h1>{{program.Name}}</h1>
+</div>
+<section class="description-selection">
+    <label for="gym-select" id="l1">Επιλογή Γυμναστηρίου</label>
+    <label for="gym-select" id="l2">Επιλέξτε Γυμναστήριο για να συνεχίσετε</label>
+    <select id="gym-select">
+        <option value="" disabled selected>Επιλέξτε γυμναστήριο</option>
+        {{#each gyms}}
+        <option value="{{this.GYM_Location}}" {{#ifEquals ../selectedGym this.GYM_Location}}selected{{/ifEquals}}>
+            {{this.GYM_Location}}</option>
+        {{/each}}
+    </select>
+    <h3 style="margin-top: 25px;">💰 Κόστος: <span>{{program.Price_ana_Session}}</span></h3>
+    <button class="btn btn-lg btn-neutral" disabled onclick="confirmPurchase('{{../this.CATEGORY_Duration}}')">
+        Κλείσε Θέση Τώρα ➜
+    </button>
+</section>
+<section class="program-description-section">
+    <div class="description-card">
+        <h2>📋 Περιγραφή</h2>
+        <p>{{{program.Description}}}</p>
+    </div>
+</section>

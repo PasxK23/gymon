@@ -1,0 +1,98 @@
+
+  <body>
+    <h2>Επιλογή Γυμναστηρίου</h2>
+    <p>Επιλέξτε Γυμναστήριο για να ενημερωθείτε για το πρόγραμμα των μαθημάτων</p>
+    <select id="gym-select" title="gym-select">
+     <option value="" disabled selected>Επιλέξτε γυμναστήριο</option>
+      {{#each gyms}}
+        <option value="{{this.Location}}" {{#ifEquals ../gym.Location this.Location}}selected{{/ifEquals}}>{{this.Location}}</option>
+        {{/each}}
+    </select>
+
+
+    <p>Ωράριο Λειτουργίας: {{gym.Schedule}}</p>
+<main>
+  <h2>Πρόγραμμα Μαθημάτων - {{gym.Location}}</h2>
+  <div class="table-responsive">
+  <table id="schedule-table" class="sessions-table">
+   <thead>
+    <tr>
+      <th>{{currentPeriod}}</th>
+      <th>Δευτέρα</th>
+      <th>Τρίτη</th>
+      <th>Τετάρτη</th>
+      <th>Πέμπτη</th>
+      <th>Παρασκευή</th>
+      <th>Σάββατο</th>
+      <th>Κυριακή</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>08:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>09:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>10:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>11:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>12:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>13:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>14:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>15:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>16:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>17:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>18:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>19:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>20:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <th>21:00</th>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+</main>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+   {{#if gym.Location}}
+      const sessions = {{{json sessions}}};
+      placeSessionsInTable(sessions);
+    {{/if}}
+  });
+</script>

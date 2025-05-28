@@ -1,0 +1,49 @@
+<header>
+  <div class="logo">
+    <a href="/">
+      <!-- Στο Express route "/" -->
+      <img src="/images/icon.webp" alt="Logo" />
+      <!-- Προσέχουμε τη σωστή διαδρομή -->
+    </a>
+  </div>
+
+  <div style="display: flex; gap: 30px;">
+    <a class="tab-item" href="/gyms">ΓΥΜΝΑΣΤΗΡΙΑ</a>
+    <a class="tab-item" href="/programs">ΠΡΟΓΡΑΜΜΑΤΑ</a>
+    {{#if userId}}
+    <a class="tab-item" href="/syndromes-user">ΣΥΝΔΡΟΜΕΣ</a>
+    {{else}}
+    <a class="tab-item" href="/syndromes">ΣΥΝΔΡΟΜΕΣ</a>
+    {{/if}}
+  </div>
+
+  <div class="user-actions">
+    {{#if userId}}
+    <a href="/profile" title="Το Προφίλ μου" style="color: inherit;">
+      <i id="userIcon" class="fa-solid fa-user"></i>
+    </a>
+    <a href="/logout" title="Αποσύνδεση" style="color: inherit;">
+      <i id="logoutIcon"  class="fa-solid fa-right-from-bracket"></i>
+    </a>
+    {{else}}
+    <button onclick="window.location.href='/login'" class="btn btn-sm btn-neutral-stroke">Σύνδεση</button>
+    <button onclick="window.location.href='/register'" class="btn btn-sm btn-neutral-stroke">Εγγραφή</button>
+    {{/if}}
+  </div>
+  <button class="hamburger" aria-label="Άνοιγμα μενού πλοήγησης" onclick="toggleMenu()">
+    <i id="mobile_bars" class="fa-solid fa-bars"></i>
+    <i id="mobile_x" class="fa-solid fa-x" style="display:none;"></i>
+  </button>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="/gyms">ΓΥΜΝΑΣΤΗΡΙΑ</a>
+    <a href="/programs">ΠΡΟΓΡΑΜΜΑΤΑ</a>
+    <a href="/syndromes">ΣΥΝΔΡΟΜΕΣ</a>
+    {{#if userId}}
+      <a href="/profile">ΠΡΟΦΙΛ</a>
+      <a href="/logout">ΑΠΟΣΥΝΔΕΣΗ</a>
+    {{else}}
+      <a href="/login">ΣΥΝΔΕΣΗ</a>
+      <a href="/register">ΕΓΓΡΑΦΗ</a>
+    {{/if}}
+  </nav>
+</header>

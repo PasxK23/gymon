@@ -1,0 +1,142 @@
+<main>
+
+  <div id="custom-modal" class="modal hidden">
+    <div class="modal-content">
+      <p id="modal-message">Είστε σίγουροι ότι θέλετε να αγοράσετε αυτή τη συνδρομή; </p>
+      <div class="modal-buttons">
+        <button id="modal-ok" style="width:60px" class="btn btn-md btn-neutral">OK</button>
+        <button id="modal-cancel" class="btn btn-md btn-neutral-stroke">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero bg-syndromes">
+    <h1 style="margin-top: 170px;">ΣΥΝΔΡΟΜΕΣ</h1>
+  </div>
+
+  <section class="description-selection">
+    <label for="gym-select" id="l1">Επιλογή Γυμναστηρίου</label>
+    <label for="gym-select" id="l2">Επιλέξτε Γυμναστήριο για να συνεχίσετε</label>
+    <select id="gym-select">
+      <option value="" disabled selected>Επιλέξτε γυμναστήριο</option>
+      {{#each gyms}}
+        <option value="{{this.Location}}" {{#ifEquals ../selectedGym this.Location}}selected{{/ifEquals}}>{{this.Location}}</option>
+      {{/each}}
+    </select>
+  </section>
+
+  <div class="container">
+    <div class="obj-area">
+      {{#each syndromes}}
+        <div class="card" style="cursor: default; border: 1px solid #EBEBEB;">
+          <div style="text-align: center;">
+            <span class="durationSub"> {{this.CATEGORY_Duration}} {{#ifEquals this.CATEGORY_Duration 1}}μήνας{{else}}μήνες{{/ifEquals}}</span>
+            <span>({{this.Price}}$/μήνα)</span> 
+          </div>
+          <div class="divider"></div>
+          <div class="content">
+            {{!-- Χρησιμοποιεί custom helper για να εμφανίσει την περιγραφή της συνδρομής σε πολλές γραμμές. --}}
+
+            {{#SplitLines this.Description}}
+                {{this}}
+            {{/SplitLines}}
+           
+            <button class="btn btn-md btn-neutral" disabled onclick="confirmPurchase('{{this.CATEGORY_Duration}}','{{this.ID}}')">
+              Αγοράστε Τώρα ➜
+            </button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+ <div id="toast" class="toast hidden"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    {{#ifEquals success true}}
+      showToast(true);
+    {{else ifEquals success false}}
+      showToast(false);
+    {{/ifEquals}}
+  });
+</script>
+</main>
+
+
+ 
+<!-- <style>
+    @media screen and (max-width: 768px) {
+        .obj-area {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        h1 {
+            font-size: x-large;
+        }
+
+        .hero {
+            height: auto;
+
+        }
+
+        body {  
+            font-size: 14px;
+            line-height: 1.5;
+            /* Προαιρετικά για καλύτερη αναγνωσιμότητα */
+        }
+
+        * {
+            font-size: inherit;
+            /* Κληρονομεί το μέγεθος από το body */
+        }
+
+        .tab-item,
+        footer {
+            font-size: small;
+        }
+
+        .btn {
+            font-size: small;
+        }
+
+        .btn-sm {
+            padding-left: 4px;
+            padding-right: 4px;
+            min-height: 26px;
+        }
+
+        .bg-syndromes {
+
+            background-size: contain;
+            /* Η εικόνα προσαρμόζεται στο container */
+            background-repeat: no-repeat;
+            background-position: center;
+
+        }
+    }
+</style> -->
+{{!-- <main>
+        <div id="custom-modal" class="modal hidden">
+            <div class="modal-content">
+                <p id="modal-message">Είστε σίγουροι ότι θέλετε να αγοράσετε αυτή τη συνδρομή;</p>
+                <div class="modal-buttons">
+                    <button id="modal-ok" style="width:60px" class="btn btn-md btn-neutral">OK</button>
+                    <button id="modal-cancel" class="btn btn-md btn-neutral-stroke">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="hero bg-syndromes">
+            <h1 style="margin-top: 170px;">ΣΥΝΔΡΟΜΕΣ</h1>
+
+        </div>
+
+        <section class="description-selection">
+            <label for="gym-select" id="l1">Επιλογή Γυμναστηρίου</label>
+            <label for="gym-select" id="l2"> Επιλέξτε Γυμναστήριο για να συνεχίσετε</label>
+            <select id="gym-select">
+                <option value="" disabled selected>Επιλέξτε γυμναστήριο </option>
+            </select>
+        </section>
+        <div class="container">
+            <div class="obj-area">
+            
+    </main>  --}}

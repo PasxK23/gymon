@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="form-container">
+    <h2>Σύνδεση</h2>
+    <form action="/login" method="POST">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Εισαγετε email"
+        required
+      />
+
+      <label for="password">Κωδικός Πρόσβασης</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Εισαγετε κωδικό"
+        required
+      />
+      <p class="error" style="color:red">{{message}}</p>
+
+      <button
+        class="btn btn-md btn-error"
+        style=" min-width:90px; width:100%; margin-top:10px"
+        type="submit"
+      >Σύνδεση</button>
+      <p class="register-link">Δεν έχετε λογαριασμό;
+        <a href="/register">Εγγραφή</a></p>
+
+    </form>
+  </div></div>

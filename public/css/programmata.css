@@ -1,0 +1,12 @@
+.bg-programs h1 {
+  margin-top: 400px;
+}
+.bg-programs {
+  background: url("/images/groups.webp") no-repeat center center;
+  background-size: cover;
+}
+@media screen and (max-width: 768px) {
+  .bg-programs h1 {
+    margin-top: 190px;
+  }
+}

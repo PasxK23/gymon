@@ -1,0 +1,108 @@
+<section class="hero bg-profile">
+    <h1>ΤΟ ΠΡΟΦΙΛ ΜΟΥ</h1>
+</section>
+
+
+<div id="custom-modal" class="modal hidden">
+    <div class="modal-content">
+        <p id="modal-message"> </p>
+        <div class="modal-buttons">
+            <button id="modal-ok" style="width:60px" class="btn btn-md btn-neutral">OK</button>
+            <button id="modal-cancel" class="btn btn-md btn-neutral-stroke">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="profile-card">
+    <i class="fa-solid fa-circle-user" id="prof"></i>
+    <h2></i>Πληροφορίες Χρήστη</h2>
+    <p><strong>Όνοματεπώνυμο:</strong> {{user.Name}} {{user.Surname}}</p>
+    <p><strong>Email:</strong> {{user.Email}}</p>
+    <p><strong>Τηλέφωνο:</strong> {{user.Phone}}</p>
+    <p><strong>Διεύθυνση:</strong> {{user.Location}}</p>
+</div>
+
+<div class="profile-all">
+    <h2>ΟΙ ΣΥΝΔΡΟΜΕΣ ΜΟΥ</h2>
+    <div class="my-syndromes">
+        <div class="card-container" id="syndromes">
+            {{#each user_subscriptions}}
+            <div class="card" id="matrix">
+                <div style="text-align: center;">
+                    <span id="select-category" style="font-weight: 600;">{{this.my_subscription.CATEGORY_Duration}}
+                        {{#ifEquals
+                        this.my_subscription.CATEGORY_Duration 1}}μήνας{{else}}μήνες{{/ifEquals}}</span>
+                    <span>({{this.my_subscription.Price}}$/μήνα)</span>
+                    <p style="color:rgb(95, 95, 95); font-size: 20px">{{this.gym_Location}}</p>
+                </div>
+                <div class="divider"></div>
+                <div class="content">
+                    <p>Απομένουν: {{this.my_subscription.Days_Left}} ημέρες</p>
+                    {{!-- Χρησιμοποιεί custom helper για να εμφανίσει την περιγραφή της συνδρομής σε πολλές γραμμές. --}}
+                    {{#SplitLines this.my_subscription.Description}}
+                    {{this}}
+                    {{/SplitLines}}
+                    <button class="btn btn-md btn-neutral"
+                        onclick="confirmRenew('{{this.my_subscription.CATEGORY_Duration}}','{{this.my_subscription.ID}}','{{this.gym_Location}}')">
+                        Ανανέωση ➜
+                    </button>
+                </div>
+            </div>
+            {{/each}}
+            
+                <div class="card plus-card">
+                    <a class="not-subs" href="/syndromes-user#gym-select" style="display: block;">
+                        <i id="plus" class="fa-regular fa-plus"></i>
+                        <p>ΠΡΟΣΘΗΚΗ ΣΥΝΔΡΟΜΗΣ</p>
+                    </a>
+                </div>
+
+            
+        </div>
+    </div>
+</div>
+
+
+{{#if hasUserSessions}}
+<h2>ΤΟ ΠΡΟΓΡΑΜΜΑ ΜΟΥ</h2>
+<div class="user-timetable-wrapper">
+    <table id="userSchedule" class="user-timetable">
+        <thead>
+            <tr>
+                <th>{{currentPeriod}}</th>
+                {{#each sortedDays}}
+                <th>{{this}}</th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each sortedHours}}
+            <tr>
+                <td>{{this}}</td>
+                {{#each ../sortedDays}}
+                <td>{{!-- Για κάθε ώρα και κάθε μέρα, βρίσκουμε αν υπάρχει συνεδρία του χρήστη που να ταιριάζει --}}
+                    {{#each ../../userSessions}}
+                    {{#ifEquals day ../this}}
+                    {{#ifEquals Time ../../this}}
+                    <div class="cell-wrapper">
+                    <a title="'Εξοδος από Group" href="/programma-gym/{{ID}}?gym={{GYM_Location}}&profile=1"
+                        class="session-cell session link">
+                        <b>{{PROGRAM_Name}}</b><br>
+                        <span class="session-max">{{GYM_Location}}</span><br>
+                        <i class="fa-solid fa-arrow-left" style="margin-left:6px;"></i>
+                    </a>
+                    </div>
+                    {{/ifEquals}}
+                    {{/ifEquals}}
+                    {{/each}}
+                </td>
+                {{/each}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+{{/if}}
+
+</div>

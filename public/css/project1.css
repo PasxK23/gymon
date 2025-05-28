@@ -1,0 +1,476 @@
+@import url("https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import "./buttons.css";
+
+body {
+  font-family: "Poppins", Arial;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: rgba(0, 0, 0);
+  color: white;
+  position: sticky;
+  top: 0px;
+  flex-wrap: wrap;
+  z-index: 100000;
+}
+
+.tab-item {
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.tab-item:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+.tab-item[data-active] {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header.scrolled {
+  background: rgba(0, 0, 0, 0.8);
+  transition: background 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hero {
+  height: 500px;
+  text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.7);
+  font-family: "Stalinist One", sans-serif;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  margin-bottom: 50px;
+  position: relative;
+}
+.hero h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 2.7rem;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0.3px);
+  background: linear-gradient(
+    0deg,
+    #00000088 30%,
+    #ffffff44 100%
+  ); /*Καταλληλος φωτισμος και ελαχιστο blur στο hero */
+}
+.bg-index {
+  background: url("/images/hero.webp") no-repeat center center;
+  background-size: cover;
+}
+
+.obj-area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.card img {
+  height: 20vw;
+  width: 100%;
+  background: fixed;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px -1px rgb(0 0 0 / 0.2), 0 4px 8px -2px rgb(0 0 0 / 0.2);
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+}
+.card:hover .divider {
+  background-color: black;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: #ebebeb;
+}
+
+.bg-index .btn {
+  width: 150px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 45px;
+
+  height: auto;
+  display: block;
+}
+
+.image-placeholder_soc {
+  aspect-ratio: 1 / 1;
+  background-size: contain;
+  background-position: center;
+}
+
+footer {
+  display: flex;
+  font-weight: bold;
+  font-size: large;
+  justify-content: space-around;
+  padding: 20px;
+  height: 10em;
+  background: #000000;
+  color: rgb(255, 255, 255);
+  border-top: 4px solid #000000;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.soc_container {
+  display: flex;
+  flex-direction: column;
+}
+
+#im_inst {
+  background-image: url("/images/instagram.webp");
+  width: 30px;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: black;
+}
+
+#im_fac {
+  background-image: url("/images/facebook.webp");
+  width: 30px;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: black;
+}
+
+select {
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #000000;
+  border-radius: 5px;
+
+  width: 300px;
+  text-align-last: center;
+}
+.description-selection {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+i {
+  font-size: 1.7rem;
+  margin: 0 6px;
+  transition: color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+#logoutIcon:hover {
+  color: #e63946;
+  transform: scale(1.2) rotate(-10deg);
+}
+#userIcon:hover {
+  color: lightblue;
+}
+
+p {
+  margin: 5px 0 10px;
+}
+
+.hamburger,
+.mobile-menu {
+  display: none;
+}
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: fit-content;
+  background: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 0;
+  z-index: 1100;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+#mobile_x {
+  display: none;
+  font-size: 22px;
+}
+#mobile_bars {
+  font-size: 22px;
+}
+.mobile-menu a {
+  color: white;
+  padding: 18px 24px;
+  width: 100%;
+  text-align: right;
+  border-bottom: 1px solid #222;
+  font-size: 10px;
+}
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1101;
+}
+.user-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .obj-area {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero h1 {
+    font-size: x-large;
+  }
+
+  h2 {
+    font-size: large;
+  }
+
+  .hero {
+    height: auto;
+  }
+
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  * {
+    font-size: inherit;
+    /* Κληρονομεί το μέγεθος από το body */
+  }
+
+  header {
+    padding: 10px;
+  }
+
+  .tab-item,
+  footer {
+    font-size: small;
+    height: auto;
+  }
+
+  .btn {
+    font-size: small;
+    width: auto;
+  }
+  .btn-lg {
+    padding-left: 8px;
+    padding-right: 8px;
+    min-height: 40px;
+  }
+
+  .btn-sm {
+    padding-left: 4px;
+    padding-right: 4px;
+    min-height: 26px;
+  }
+
+  .btn-md {
+    padding-left: 6px;
+    padding-right: 6px;
+    min-height: 32px;
+  }
+
+  .logo img {
+    width: 40px;
+  }
+
+  .bg-index .btn {
+    width: 120px;
+  }
+
+  .bg-index h1 {
+    font-size: 35px;
+    margin-bottom: 100px;
+  }
+  i {
+    font-size: 1.5rem;
+    margin: 0 4px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  header {
+    padding: 8px;
+  }
+
+  .hero h1 {
+    font-size: 20px;
+  }
+  body {
+    font-size: 12px;
+  }
+
+  * {
+    font-size: inherit;
+  }
+  .logo img {
+    width: 35px;
+  }
+  .btn-sm {
+    font-size: 8px;
+    padding-left: 2px;
+    padding-right: 2px;
+    min-height: 22px;
+  }
+  .bg-index .btn {
+    width: 100px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .btn-lg {
+    font-size: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-height: 32px;
+  }
+  .btn-md {
+    font-size: 11px;
+    padding-left: 4px;
+    padding-right: 4px;
+    min-height: 28px;
+  }
+  h2 {
+    font-size: medium;
+  }
+  h4 {
+    font-size: small;
+  }
+  .tab-item {
+    display: none;
+  }
+  .obj-area {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .card img {
+    height: 35vw;
+    width: 100%;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  .mobile-menu.open {
+    display: flex;
+
+    flex-direction: column;
+  }
+
+  .tab-item,
+  .user-actions {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .mobile-menu {
+    top: 55px;
+  }
+  .image-placeholder_soc {
+    width: 70%;
+    height: 70%;
+    background-size: contain;
+    background-position: center;
+  }
+  select {
+    height: fit-content;
+    font-size: 13px;
+    width: fit-content; /* ή όσο μικρό θες */
+  }
+  select option {
+    font-size: 13x;
+  }
+
+  footer {
+    font-size: smaller;
+  }
+}

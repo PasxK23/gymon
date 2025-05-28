@@ -1,0 +1,10 @@
+.bg-gym {
+  background: url("/images/gyms_home.webp") no-repeat center center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 950px) and (min-width: 560px) {
+  .obj-area {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

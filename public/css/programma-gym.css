@@ -1,0 +1,113 @@
+.sessions-table {
+  width: 100%;
+  text-align: center;
+  margin: 40px auto;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 12px #0001;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.sessions-table th, .sessions-table td {
+  padding: 12px 8px;
+  border: 1px solid #eee;
+  text-align: center;
+  min-width: 120px;
+  vertical-align: top;
+  height: 100%; /* για να έχουν όλα τα κελιά το ίδιο ύψος */
+}
+.sessions-table th {
+  background: #f7f7f7;
+  font-weight: bold;
+}
+.cell-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.session-cell {
+  display: block;
+  text-align: center;
+  border-radius: 12px;
+  margin: 4px 0;
+  padding: 10px 8px;
+  font-size: 0.95em;
+  box-shadow: 0 2px 8px #1565c022;
+  width: 100%;                   
+  max-width: 120px;             
+  height: 100%;    
+        font-size: 1em;
+  font-weight: 500;        
+}
+/* αλλαζει το attribute αναλογα με τον αριθμο θεσεων*/
+.session-cell[available]{
+  color: #1565c0;
+  background: #e3f2fd;
+
+}
+.session-cell[unavailable] {
+  color: #a94442;
+  background: #ffeaea; 
+ 
+}
+.session-cell[few] {
+  color: #856404;
+  background: #fff3cd;
+}
+.session-cell[reserved] {
+  color: #155724;
+  background: #cef7ce; 
+
+}
+
+.session-cell[reserved]:hover {
+  background: #a2fab7;
+  color: #155724;
+  box-shadow: 0 4px 16px #15572422;
+}
+.session-cell[available]:hover {
+  background: #bbdefb;
+  color: #0d47a1;
+  box-shadow: 0 4px 16px #1565c044;
+}
+.session-cell[unavailable]:hover {
+  background: #f8d7da;
+  color: #721c24;
+  box-shadow: 0 4px 16px #a9444222;
+}
+.session-cell[few]:hover {
+  background: #ffeeba;
+  color: #856404;
+  box-shadow: 0 4px 16px #85640422;
+}
+
+.table-responsive {
+   width: 100%;
+  overflow-x: auto;
+  position: relative;
+}
+
+
+.table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; 
+}
+.session-max {
+  font-size: 0.95em;
+  color: #333;
+}
+@media screen and (max-width: 560px) {
+  .sessions-table th, .sessions-table td {
+    padding: 8px 4px; /* Μειωμένο padding για μικρότερες οθόνες */
+    
+  }
+  .session-cell {
+    width: 80%;
+    height: fit-content; 
+  }
+}

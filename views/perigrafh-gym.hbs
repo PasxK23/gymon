@@ -1,0 +1,87 @@
+<div
+  class="hero bg-im"
+  style="background-image: url('/images/{{gym.Location}}.webp'); background-size: cover; background-position: center;"
+>
+  <h1 id="titleName">{{gym.Location}}</h1>
+</div>
+
+<div class="gym-description-section">
+  <div class="description-card">
+    <h2>📍 Περιγραφή</h2>
+
+    <p>💪 Έτοιμος να ξεπεράσεις τα όριά σου; Έλα στο γυμναστήριο μας και η
+      επιθυμία σου θα γίνει πραγματικότητα, πάρε την απόφαση και σε περιμένει
+      ένας χώρος γεμάτος ενέργεια, εξοπλισμένος με σύγχρονα όργανα για κάθε
+      μυϊκή ομάδα και ένα πρόγραμμα δραστηριοτήτων που καλύπτει κάθε σου ανάγκη!
+    </p>
+    <p>🔥 Personal training για στοχευμένη προπόνηση, ομαδικά προγράμματα όπως
+      yoga και pilates για ενδυνάμωση και ευεξία, και φυσικά... ακόμα
+      περισσότερες εκπλήξεις που θα ανακαλύψεις μόλις περάσεις την πόρτα μας!
+    </p>
+
+    <h3 style="margin-top: 25px;margin-bottom: 25px;">
+      ⏳ Τι περιμένεις; Κλείσε το ραντεβού σου τώρα και ζήσε την απόλυτη fitness
+      εμπειρία!
+    </h3>
+
+    <div>
+      {{#if userId}}
+        <a
+          id="syndromes"
+          class="btn btn-lg btn-error"
+          style="border-radius: 16px; margin-right: 5px;"
+          href="/syndromes-user?gym={{gym.Location}}#gym-select"
+        >
+          ΑΝΑΝΕΩΣΗ/ΑΓΟΡΑ ΣΥΝΔΡΟΜΗΣ ➜
+        </a>
+      {{else}}
+        <a
+          id="syndromes"
+          class="btn btn-lg btn-error"
+          style="border-radius: 16px; margin-right: 5px;"
+          href="/syndromes?gym={{gym.Location}}#gym-select"
+        >
+          ΑΓΟΡΑ ΣΥΝΔΡΟΜΗΣ ➜
+        </a>
+      {{/if}}
+      <a
+        href="/programma-gym?gym={{gym.Location}}#gym-select"
+        class="btn btn-lg btn-error-stroke"
+        style="border-radius: 16px;"
+      >
+        ΠΡΟΓΡΑΜΜΑ
+      </a>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h4>ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</h4>
+    <p>
+      Διεύθυνση:
+      {{gym.Address}}<br />
+      Email:
+      <a class="word-wrap" href="mailto:{{gym.Email}}">{{gym.Email}} </a><br />
+      Τηλ.:
+      {{gym.Phone}}
+    </p>
+
+    <h4>ΩΡΑΡΙΟ</h4>
+    <p>
+      {{#SplitLines gym.Schedule}}
+        {{this}}
+      {{/SplitLines}}
+    </p>
+  </div>
+</div>
+<!-- <script>
+        const gymTitle = localStorage.getItem("selectedGym") || "ΓΥΜΝΑΣΤΗΡΙΟ";
+        document.getElementById("titleName").textContent = gymTitle.toUpperCase();
+        document.getElementById("locationName").textContent = gymTitle.toUpperCase();
+        const titleElement = document.getElementById("gymName");
+
+        if (gymTitle) {
+            titleElement.textContent = gymTitle;
+        } else {
+            titleElement.textContent = "Γυμναστήριο";
+        }
+    </script> -->

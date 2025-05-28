@@ -1,0 +1,101 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.btn:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  background-color: #e0e0e0;
+  color: #b8acac;
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+.btn-sm {
+  padding-left: 6px;
+  padding-right: 6px;
+  min-height: 32px;
+  font-size: 14px;
+}
+
+.btn-md {
+  padding-left: 10px;
+  padding-right: 10px;
+  min-height: 40px;
+  font-size: 16px;
+}
+
+.btn-lg {
+  padding-left: 14px;
+  padding-right: 14px;
+  min-height: 48px;
+  font-size: 18px;
+}
+
+.btn-neutral {
+  background-color: #262626;
+  color: white;
+}
+
+.btn-neutral:hover {
+  background-color: #171717;
+  color: white;
+}
+
+.btn-neutral:focus-visible {
+  outline-color: #eef0f2;
+}
+
+.btn-neutral-stroke {
+  color: #414040;
+  border-color: #ebebeb;
+  background-color: white;
+}
+
+.btn-neutral-stroke:hover {
+  color: black;
+  background-color: #f7f7f7;
+}
+
+.btn-neutral-stroke:focus-visible {
+  color: black;
+  outline-color: #eef0f2;
+  border-color: #171717;
+}
+
+.btn-error {
+  background-color: #ff2e40;
+  color: white;
+}
+
+.btn-error:hover {
+  background-color: #f62b3c;
+  color: white;
+}
+
+.btn-error:focus-visible {
+  outline-color: #ffebed;
+}
+
+.btn-error-stroke {
+  color: #fb3748;
+  border-color: #fb3748;
+  background-color: white;
+}
+
+.btn-error-stroke:hover {
+  background-color: #ffebed;
+}
+
+.btn-error-stroke:focus-visible {
+  outline-color: #ffebed;
+}

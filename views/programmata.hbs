@@ -1,0 +1,20 @@
+<div class="hero bg-programs">
+  <h1>ΠΡΟΓΡΑΜΜΑΤΑ</h1>
+</div>
+
+<section class="container">
+  <div class="obj-area">
+    {{#each programs}}
+      <a class="card" href="/programs/{{this.Name}}">
+        <h3>{{this.Name}}</h3>
+        <div class="divider"></div>
+        <img
+          src="/images/{{this.Name}}card.webp"
+          alt="{{this.Name}}"
+          width="400"
+          height="300"
+        />
+      </a>
+    {{/each}}
+  </div>
+</section>

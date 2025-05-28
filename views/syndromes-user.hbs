@@ -1,0 +1,93 @@
+<main>
+    {{!-- Modal --}}
+    <div id="custom-modal" class="modal hidden">
+        <div class="modal-content">
+            <p id="modal-message">Είστε σίγουροι ότι θέλετε να αγοράσετε αυτή τη συνδρομή; </p>
+            <div class="modal-buttons">
+                <button id="modal-ok" style="width:60px" class="btn btn-md btn-neutral">OK</button>
+                <button id="modal-cancel" class="btn btn-md btn-neutral-stroke">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero bg-syndromes">
+        <h1 style="margin-top: 170px;">ΣΥΝΔΡΟΜΕΣ</h1>
+    </div>
+
+    {{!-- Gym Selection --}}
+    <section class="description-selection">
+        <label for="gym-select" id="l1">Επιλογή Γυμναστηρίου</label>
+        <label for="gym-select" id="l2">Επιλέξτε Γυμναστήριο για να συνεχίσετε</label>
+        <select id="gym-select">
+            <option value="" disabled selected>Επιλέξτε γυμναστήριο</option>
+            {{#each gyms}}
+            <option value="{{this.Location}}" {{#ifEquals ../selectedGym this.Location}}selected{{/ifEquals}}>
+                {{this.Location}}</option>
+            {{/each}}
+        </select>
+    </section>
+
+    <div class="container">
+        <div class="obj-area">
+            {{#each syndromes.my_subs}}
+            <div class="card" style="cursor: default; border: 1px solid #EBEBEB;">
+                <div style="text-align: center;">
+                    <span id="select-category" class='durationSub'>
+                        {{this.CATEGORY_Duration}}
+                        {{#ifEquals this.CATEGORY_Duration 1}}μήνας{{else}}μήνες{{/ifEquals}}
+                    </span>
+                    <span>({{this.Price}}$/μήνα)</span>
+
+                </div>
+                <div class="divider"></div>
+                <div class="content">
+                    <p>Απομένουν: {{this.Days_Left}} ημέρες</p>
+                   {{!-- Χρησιμοποιεί custom helper για να εμφανίσει την περιγραφή της συνδρομής σε πολλές γραμμές. --}}
+            
+                    {{#SplitLines this.Description}}
+                    {{this}}
+                    {{/SplitLines}}
+                    <button class="btn btn-md btn-neutral"
+                        onclick="confirmRenew('{{this.CATEGORY_Duration}}','{{this.ID}}','{{this.gym_Location}}')">
+                        Ανανέωση ➜
+                    </button>
+                </div>
+            </div>
+            {{/each}}
+
+            {{#each syndromes.other_subs}}
+            <div class="card" style="cursor: default; border: 1px solid #EBEBEB;">
+                <div style="text-align: center;">
+                    <span class='durationSub'>
+                        {{this.CATEGORY_Duration}}
+                        {{#ifEquals this.CATEGORY_Duration 1}}μήνας{{else}}μήνες{{/ifEquals}}
+                    </span>
+                    <span>({{this.Price}}$/μήνα)</span>
+                </div>
+                <div class="divider"></div>
+                <div class="content">
+                    {{#SplitLines this.Description}}
+                    {{this}}
+                    {{/SplitLines}}
+                    <button class="btn btn-md btn-neutral"
+                        onclick="confirmPurchase('{{this.CATEGORY_Duration}}','{{this.ID}}','{{this.gym_Location}}')">
+                        Αγοράστε Τώρα ➜
+                    </button>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div id="toast" class="toast hidden"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        {{#ifEquals success true}}
+      showToast(true);
+    {{else}}
+      {{#ifEquals success false}}
+        showToast(false);
+      {{/ifEquals}}
+    {{/ifEquals}}
+        });
+    </script>
+</main>

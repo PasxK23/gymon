@@ -1,0 +1,94 @@
+.gym-description-section {
+  display: flex;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.description-card {
+  background-color: white;
+  width: fit-content;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-right: 10px;
+
+  color: #333;
+}
+
+.description-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.description-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.description-card h3 {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact {
+  width: 35vw;
+  height: fit-content;
+  padding: 2rem;
+  margin: 10px;
+  border-radius: 16px;
+  color: #a5a3a3;
+}
+.word-wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.contact h4 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact a:hover {
+  text-decoration: none;
+  color: red;
+}
+@media screen and (max-width: 768px) {
+
+  .bg-im {
+    aspect-ratio: 14 / 6;
+  }
+}
+@media screen and (max-width: 560px) {
+  .description-card h3 {
+    font-size: 1rem;
+  }
+
+  .description-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .description-card p {
+    font-size: 14px;
+  }
+  .contact {
+    margin: 5px;
+  }
+  .contact h4 {
+    font-size: 13px;
+    width: 100%;
+  }
+  .btn {
+    width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+}
